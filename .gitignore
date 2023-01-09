@@ -1,0 +1,77 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+/EmployeeProjectFront/dist
+/EmployeeProjectFront/tmp
+/EmployeeProjectFront/out-tsc
+/EmployeeProjectFront/bazel-out
+
+# Node
+/EmployeeProjectFront/node_modules
+npm-debug.log
+/EmployeeProjectFront/yarn-error.log
+
+# IDEs and editors
+/EmployeeProjectFront/.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+/EmployeeProjectFront/.angular/cache
+/EmployeeProjectFront/.sass-cache/
+/EmployeeProjectFront/connect.lock
+/EmployeeProjectFront/coverage
+/EmployeeProjectFront/libpeerconnection.log
+testem.log
+/EmployeeProjectFront/typings
+
+# System files
+.DS_Store
+Thumbs.db
+
+#Spring boot
+/EmployeeProjectBack/HELP.md
+/EmployeeProjectBack/target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/EmployeeProjectBack/nbproject/private/
+/EmployeeProjectBack/nbbuild/
+/EmployeeProjectBack/dist/
+/EmployeeProjectBack/nbdist/
+.nb-gradle/
+/EmployeeProjectBack/build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
