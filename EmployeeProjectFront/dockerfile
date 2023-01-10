@@ -1,0 +1,12 @@
+#stage 1: node and build app
+FROM node:18.12 as build
+RUN mkdir -p /app
+WORKDIR /app
+COPY package.json /app/
+RUN npm install
+COPY . /app/
+RUN npm run build --prod
+
+#stage 2: install nginx
+FROM nginx:latest
+COPY --from=build /app/dist/employee-project-front/ /usr/share/nginx/html
