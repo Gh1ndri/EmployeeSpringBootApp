@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Launch FrontEnd Pipeline') {
       when {
-        changeset "EmployeeProjectFront/*"
+        changeset "EmployeeProjectFront/**"
       }
       steps {
         build job: 'FrontEmployeePipeline'
@@ -11,7 +11,7 @@ pipeline {
     }
     stage('Launch BackEnd Pipeline') {
       when {
-        changeset "EmployeeProjectBack/*"
+        changeset "EmployeeProjectBack/**"
       }
       steps {
         build job: 'BackEmployeePipeline'
