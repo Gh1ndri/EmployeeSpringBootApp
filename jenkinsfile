@@ -3,18 +3,18 @@ pipeline {
   stages {
     stage('Launch FrontEnd Pipeline') {
       when {
-        changed "EmployeeProjectFront/*"
+        changeset "EmployeeProjectFront/*"
       }
       steps {
-        build job: 'FrontEmployeePipeline', parameters: []
+        build job: 'FrontEmployeePipeline'
       }
     }
     stage('Launch BackEnd Pipeline') {
       when {
-        changed "EmployeeProjectBack/*"
+        changeset "EmployeeProjectBack/*"
       }
       steps {
-        build job: 'BackEmployeePipeline', parameters: []
+        build job: 'BackEmployeePipeline'
       }
     }
   }
