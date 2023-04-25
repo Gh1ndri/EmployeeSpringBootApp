@@ -3,24 +3,18 @@ pipeline {
   stages {
     stage('Launch FrontEnd Pipeline') {
       when {
-        expression { params.LAUNCH_PIPELINE1 == true }
+        changeset "EmployeeProjectFront/*"
       }
       steps {
-        build job: 'Pipeline1', parameters: [
-          string(name: 'PARAM1', value: 'value1'),
-          booleanParam(name: 'PARAM2', value: true)
-        ]
+        build job: 'FrontEmployeePipeline', parameters: []
       }
     }
     stage('Launch BackEnd Pipeline') {
       when {
-        expression { params.LAUNCH_PIPELINE2 == true }
+        changeset "EmployeeProjectBack/*"
       }
       steps {
-        build job: 'Pipeline2', parameters: [
-          string(name: 'PARAM3', value: 'value3'),
-          booleanParam(name: 'PARAM4', value: false)
-        ]
+        build job: 'BackEmployeePipeline', parameters: []
       }
     }
   }
