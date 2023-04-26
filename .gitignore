@@ -43,10 +43,10 @@ Thumbs.db
 
 #Spring boot
 /EmployeeProjectBack/HELP.md
-/EmployeeProjectBack/target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+#/EmployeeProjectBack/target/
+#!.mvn/wrapper/maven-wrapper.jar
+#!**/src/main/**/target/
+#!**/src/test/**/target/
 
 ### STS ###
 .apt_generated

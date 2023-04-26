@@ -17,5 +17,11 @@ pipeline {
                   sh 'docker login -u $USER -p $PASSWORD'
              }
         }
+
+        stage ('push image'){
+             steps{
+                  sh 'docker push $IMAGE_NAME:$GIT_COMMIT'
+             }
+        }
     }
 }
