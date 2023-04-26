@@ -23,5 +23,12 @@ pipeline {
                   sh 'docker push $IMAGE_NAME:$GIT_COMMIT'
              }
         }
+
+        stage ('run using docker compose'){
+            steps{
+                echo 'start building docker compose'
+                sh 'docker compose up -d'
+            }
+        }
     }
 }
