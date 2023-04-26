@@ -1,10 +1,21 @@
 pipeline {
     agent any
+
+    environment{
+        		IMAGE_NAME = "gh1ndri/employee_backend"
+        }
     stages {
-        stage('Stage 1') {
-            steps {
-                echo 'Hello world from BackEnd'
-            }
+        stage ('build docker image'){
+                steps{
+                    echo 'start building'
+                    sh 'docker build -t $IMAGE_NAME:$GIT_COMMIT -t $IMAGE_NAME:latest .'
+                }
+        }
+
+        stage ('login to docker'){
+             steps{
+                  sh 'docker login -u $USER -p $PASSWORD'
+             }
         }
     }
 }
