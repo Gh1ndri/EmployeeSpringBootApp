@@ -5,26 +5,37 @@ pipeline {
         		IMAGE_NAME = "gh1ndri/employee_backend"
         }
     stages {
-        stage ('build docker image'){
+        stage ('build docker image from dockerfile'){
                 steps{
                     echo 'start building'
                     sh 'docker build -t $IMAGE_NAME:$GIT_COMMIT -t $IMAGE_NAME:latest EmployeeProjectBack/.'
                 }
         }
 
-        stage ('login to docker'){
+        stage ('login to gh1ndri dockerhub'){
              steps{
                   sh 'docker login -u $USER -p $PASSWORD'
              }
         }
 
-        stage ('push image'){
+        stage ('push image to gh1ndri dockerhub'){
              steps{
                   sh 'docker push $IMAGE_NAME:$GIT_COMMIT'
              }
         }
 
-        stage ('run using docker compose'){
+        stage('Clean docker containers'){
+            steps{
+                script{
+                    def doc_containers = sh(returnStdout: true, script: 'docker container ps -aq').replaceAll("\n", " ")
+                    if (doc_containers) {
+                        sh "docker stop ${doc_containers}"
+                    }
+                }
+            }
+        }
+
+        stage ('run images using docker compose'){
             steps{
                 echo 'start building docker compose'
                 sh 'docker compose -f EmployeeProjectBack/docker-compose.yml up -d'
