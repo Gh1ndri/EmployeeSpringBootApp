@@ -13,7 +13,7 @@ import java.util.Map;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v")
 public class EmployeeController {
     @Autowired
     private EmployeeRepository employeeRepository;
