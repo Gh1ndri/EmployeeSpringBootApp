@@ -8,10 +8,10 @@ pipeline {
     }
 
     stages {
-        stage ('test maven installation'){
+        stage ('build maven project'){
             steps{
                 echo 'start building project with maven'
-                sh 'mvn --version'
+                sh 'mvn clean install'
             }
         }
 
