@@ -14,7 +14,7 @@ import java.util.*;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v2")
 public class EmployeeController {
     @Autowired
     private EmployeeRepository employeeRepository;
