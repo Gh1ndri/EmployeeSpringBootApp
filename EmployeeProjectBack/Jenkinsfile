@@ -1,15 +1,17 @@
 pipeline {
     agent any
-    
+    tools{
+        maven '3.9.1'
+    }
     environment{
         		IMAGE_NAME = "gh1ndri/employee_backend"
     }
 
     stages {
-        stage ('build project with maven'){
+        stage ('test maven installation'){
             steps{
                 echo 'start building project with maven'
-                sh 'mvn clean install'
+                sh 'mvn --version'
             }
         }
 
