@@ -11,7 +11,7 @@ pipeline {
         stage ('build maven project'){
             steps{
                 echo 'start building project with maven'
-                sh 'mvn clean install'
+                sh 'mvn -f EmployeeProjectBack/pom.xml clean install'
             }
         }
 
