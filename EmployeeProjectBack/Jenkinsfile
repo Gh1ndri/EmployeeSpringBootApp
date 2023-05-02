@@ -4,10 +4,17 @@ pipeline {
         		IMAGE_NAME = "gh1ndri/employee_backend"
     }
 
+    stage ('build project with maven'){
+            steps{
+                echo 'start building project with maven'
+                sh 'mvn clean install'
+            }
+    }
+
     stages {
         stage ('build docker image from dockerfile'){
                 steps{
-                    echo 'start building'
+                    echo 'start building dockerfile'
                     sh 'docker build -t $IMAGE_NAME:$GIT_COMMIT -t $IMAGE_NAME:latest EmployeeProjectBack/.'
                 }
         }
